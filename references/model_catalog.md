@@ -8,7 +8,7 @@ quality with the shared benchmark and listening review.
 
 | Key | Project | Local root | GitHub | Clone | Primary role |
 |---|---|---|---|---|---|
-| `indextts` | `mlx_indextts2` | `/Users/vanch/mlx-indextts2` | `vanch007/mlx-indextts2` | yes | multilingual cloning, separated emotion control, batch planning |
+| `indextts` | `mlx_indextts2` | `/Users/vanch/mlx-indextts2` | `vanch007/mlx-indextts2` | yes | IndexTTS 2.5 zh/en/ja/es/ar; separate Vietnamese 2.0; cloning, emotion, duration, streaming |
 | `voxcpm2` | `mlx_voxcpm2` | `/Users/vanch/mlx-voxcpm2` | `vanch007/mlx-voxcpm2` | yes | native MLX cloning and fidelity comparison |
 | `qwen_tts` | `mlx_qwen3_tts` | `/Users/vanch/mlx-qwen3-tts` | `vanch007/mlx-qwen3-tts` | yes | ICL clone, presets, and natural-language voice design |
 | `omnivoice` | `mlx_omnivoice` | `/Users/vanch/mlx-omnivoice` | `vanch007/mlx-omnivoice` | yes | Chinese dialogue and crosstalk |

@@ -129,6 +129,14 @@ def route(
             suggested_profile="vietnamese",
             suggested_checks=("asr", "rtf"),
         )
+    if lang in {"ja", "es", "ar"}:
+        return Route(
+            backend="indextts",
+            confidence=0.88,
+            reason=f"IndexTTS 2.5 has a validated explicit {lang} language path",
+            suggested_profile="v25",
+            suggested_checks=("asr", "voice", "rtf", "manual_listening"),
+        )
     if needs_emotion or task in {"novel", "emotion_library", "emotion"}:
         return Route(
             backend="indextts",

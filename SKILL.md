@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 11 local projects: IndexTTS2, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, and Supertonic. Use for local MLX TTS generation, voice cloning or design, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for ASR-only tasks, cloud TTS, or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 11 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, and Supertonic. Use for local MLX TTS generation, voice cloning or design, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for ASR-only tasks, cloud TTS, or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -27,6 +27,11 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 ## Backend Status and Evidence Boundary
 
 - Production/default: `mlx-indextts2`, `mlx-omnivoice`.
+- `mlx-indextts2` defaults non-Vietnamese work to IndexTTS 2.5 GPT 8-bit at
+  `models/mlx-IndexTTS-2.5-8bit` (HF revision
+  `d0aa86e75bb6f3437f3831e95056fa72842d89ef`). Its evidenced languages are
+  Chinese, English, Japanese, Spanish, and Arabic. Vietnamese remains a
+  separate IndexTTS 2.0 local-extension profile and evaluation artifact.
 - Performance-verified candidate: `mlx-voxcpm2` native official rebuild.
 - Official-lineage candidate: `mlx-qwen3-tts` Base, CustomVoice, and VoiceDesign
   int8 conversions. Use it for comparison, Qwen-style cloning, CustomVoice
@@ -48,7 +53,7 @@ Extract these fields from the user request or manifest. Do not invent missing fi
 - `task_type`: `single`, `batch`, `dialogue`, `novel`, `benchmark`, `compare`, `optimize`, `emotion_library`, `asr_check`
 - `backend`: one of the 11 canonical registry keys, an accepted alias, or `compare`
 - `model_override`: exact model directory, registry id, or CLI model flag
-- `language`: `zh`, `en`, `vi`, `mixed`, or `auto`
+- `language`: `zh`, `en`, `ja`, `es`, `ar`, `vi`, `mixed`, or `auto`
 - `speaker_ref`: voice reference audio, speaker cache, or per-row manifest column
 - `emotion_ref`: separate emotion reference audio, emotion vector, Qwen auto emotion, or per-row manifest column
 - `batch_manifest`: CSV/JSON/text file containing segment rows
@@ -63,14 +68,16 @@ Backend-specific options must pass through to the native project. Keep explicit 
 1. If `model_override` or explicit backend is provided, use it unless the request is impossible or unsafe.
 2. If the user asks to compare, benchmark, or is unsure, run compare mode across feasible backends.
 3. Vietnamese with tone marks routes to `mlx-indextts2` Vietnamese profile.
-4. Chinese dialogue/crosstalk where text accuracy is the main risk routes to `mlx-indextts2` or `mlx-omnivoice` first; include `mlx-voxcpm2` when the user asks for speed/content-fidelity comparison or accepts candidate audio review.
-5. Chinese crosstalk/stage-dialogue where the goal is natural相声 cadence, two-speaker replay, or OmniVoice-specific comparison routes to `mlx-omnivoice`.
-6. Voice cloning with Qwen-style ICL, CustomVoice preset speakers, VoiceDesign
+4. Japanese, Spanish, or Arabic IndexTTS requests use the 2.5 profile with an
+   explicit `--language`; English and Spanish auto-detection is ambiguous.
+5. Chinese dialogue/crosstalk where text accuracy is the main risk routes to `mlx-indextts2` or `mlx-omnivoice` first; include `mlx-voxcpm2` when the user asks for speed/content-fidelity comparison or accepts candidate audio review.
+6. Chinese crosstalk/stage-dialogue where the goal is natural相声 cadence, two-speaker replay, or OmniVoice-specific comparison routes to `mlx-omnivoice`.
+7. Voice cloning with Qwen-style ICL, CustomVoice preset speakers, VoiceDesign
    natural-language voice design, replay, or high speed can include
    `mlx-qwen3-tts`; run ASR/leakage checks before production use.
-7. Emotion control, separated speaker/emotion references, Vietnamese, novel planning, emotion2vec libraries, and Qwen text emotion route to `mlx-indextts2`.
-8. If content fidelity is unknown, generate a short pilot and run ASR回读 before scaling to the full batch.
-9. Music/sound effects with speech route to `ming`; explicit quality/speaking-rate
+8. Emotion control, separated speaker/emotion references, Vietnamese, novel planning, emotion2vec libraries, and Qwen text emotion route to `mlx-indextts2`.
+9. If content fidelity is unknown, generate a short pilot and run ASR回读 before scaling to the full batch.
+10. Music/sound effects with speech route to `ming`; explicit quality/speaking-rate
    conditioning routes to `zonos2`; lightweight fixed-style on-device speech
    routes to `supertonic`.
 
@@ -164,6 +171,10 @@ python /Users/vanch/tts-test-project/scripts/run_local_open_tts_matrix.py --help
 Direct text generation and reference voice cloning are separate capabilities
 and test cases. Compute speaker similarity only when a valid reference is paired
 with a backend that actually performs reference cloning.
+
+IndexTTS evaluation must use `mlx_indextts2_v25_8bit` for the 2.5 artifact and
+`mlx_indextts2_vietnamese_8bit` for Vietnamese 2.0. Never relabel historical
+`mlx_indextts2_standard_8bit` rows as 2.5 without regeneration.
 
 ## Missing Project Recovery
 

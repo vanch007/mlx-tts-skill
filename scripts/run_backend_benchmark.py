@@ -347,7 +347,7 @@ def main() -> None:
     parser.add_argument("--no-denoise-refs", action="store_true")
 
     parser.add_argument("--indextts-model", default="")
-    parser.add_argument("--indextts-profile", default="auto", choices=["auto", "standard", "vietnamese", "vi"])
+    parser.add_argument("--indextts-profile", default="auto", choices=["auto", "v25", "2.5", "standard", "vietnamese", "vi"])
     parser.add_argument("--indextts-max-tokens", type=int, default=900)
     parser.add_argument("--indextts-max-text-tokens", type=int, default=80)
     parser.add_argument("--indextts-diffusion-steps", type=int, default=16)
