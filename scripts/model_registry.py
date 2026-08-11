@@ -32,7 +32,7 @@ class ModelProject:
 
 
 PROJECTS: tuple[ModelProject, ...] = (
-    ModelProject("indextts", "mlx_indextts2", ("indextts2", "mlx-indextts2", "mlx_indextts2"), "/Users/vanch/mlx-indextts2", "vanch007/mlx-indextts2", "main", "references/indextts.md", "yes", "Multilingual cloning, separated emotion controls, and batch planning."),
+    ModelProject("indextts", "mlx_indextts2", ("indextts2", "indextts25", "indextts2.5", "mlx-indextts2", "mlx_indextts2"), "/Users/vanch/mlx-indextts2", "vanch007/mlx-indextts2", "main", "references/indextts.md", "yes", "IndexTTS 2.5 zh/en/ja/es/ar plus separate Vietnamese 2.0; cloning, emotion, duration, streaming, and batch planning."),
     ModelProject("voxcpm2", "mlx_voxcpm2", ("mlx-voxcpm2", "mlx_voxcpm2", "voxcpm"), "/Users/vanch/mlx-voxcpm2", "vanch007/mlx-voxcpm2", "main", "references/voxcpm2.md", "yes", "Native MLX voice cloning and content-fidelity comparison backend."),
     ModelProject("qwen_tts", "mlx_qwen3_tts", ("qwen", "qwen3", "qwen3_tts", "mlx-qwen3-tts", "mlx_qwen3_tts"), "/Users/vanch/mlx-qwen3-tts", "vanch007/mlx-qwen3-tts", "main", "references/qwen_tts.md", "yes", "Base ICL cloning, CustomVoice, and VoiceDesign variants."),
     ModelProject("omnivoice", "mlx_omnivoice", ("omni", "mlx-omnivoice", "mlx_omnivoice"), "/Users/vanch/mlx-omnivoice", "vanch007/mlx-omnivoice", "main", "references/omnivoice.md", "yes", "Chinese dialogue and crosstalk-oriented cloning runtime."),
