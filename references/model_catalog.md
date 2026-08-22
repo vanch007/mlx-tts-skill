@@ -1,6 +1,6 @@
 # MLX TTS Model Catalog
 
-This catalog is the operational inventory for the 11 projects in the local
+This catalog is the operational inventory for the 12 projects in the local
 benchmark roster. Capability claims are intentionally narrow: confirm final
 quality with the shared benchmark and listening review.
 
@@ -19,8 +19,9 @@ quality with the shared benchmark and listening review.
 | `ming` | `mlx_ming_omni_tts` | `/Users/vanch/mlx-Ming-omni-tts` | `vanch007/mlx-Ming-omni-tts` | design | large speech/music/sound and voice-design model |
 | `moss` | `mlx_moss_tts` | `/Users/vanch/mlx-MOSS-TTS-Local-Transformer-v1.5` | `vanch007/mlx-MOSS-TTS-Local-Transformer-v1.5` | yes | multilingual clone, style, and streaming |
 | `supertonic` | `mlx_supertonic` | `/Users/vanch/mlx-supertonic` | `vanch007/mlx-supertonic` | no | lightweight fixed-style on-device voices |
+| `fireredaudio` | `mlx_fireredaudio` | `/Users/vanch/mlx-FireRedAudio` | `vanch007/mlx-FireRedAudio` | yes | General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design |
 
-All 11 source repositories are public. Do not label Supertonic output as voice
+All 12 source repositories are public. Do not label Supertonic output as voice
 cloning: its checked project path provides fixed voice styles, not arbitrary
 reference speaker cloning.
 
@@ -124,6 +125,16 @@ uv run python example_mlx.py
 
 Use for lightweight fixed-voice comparison. Voice-clone similarity is not
 applicable unless the project later gains an evidenced reference-clone path.
+
+### FireRedAudio
+
+```bash
+cd /Users/vanch/mlx-FireRedAudio
+.venv/bin/python inference.py --help
+```
+
+General-purpose audio language model supporting ASR transcription, CoT audio QA,
+zero-shot voice cloning, speech editing, and natural language voice design.
 
 ## Benchmark Boundary
 

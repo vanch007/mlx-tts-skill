@@ -113,6 +113,14 @@ def route(
             reason="lightweight fixed-style on-device request routes to Supertonic",
             suggested_checks=("asr", "rtf"),
         )
+    if any(token in combined for token in ("speech editing", "语音编辑", "audio qa", "音频问答", "fireredaudio", "firered")):
+        return Route(
+            backend="fireredaudio",
+            confidence=0.88,
+            reason="general-purpose audio LLM with ASR/QA/editing/voice design routes to FireRedAudio",
+            suggested_profile="8bit",
+            suggested_checks=("asr", "voice", "rtf"),
+        )
 
     if omnivoice_requested or "omnivoice" in goal:
         return Route(
