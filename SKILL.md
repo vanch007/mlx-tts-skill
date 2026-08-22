@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 11 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, and Supertonic. Use for local MLX TTS generation, voice cloning or design, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for ASR-only tasks, cloud TTS, or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 12 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, and FireRedAudio. Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -38,9 +38,11 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
   preset speakers, VoiceDesign experiments, and fast replay after ASR/leakage
   checks. Do not silently promote it over IndexTTS2/OmniVoice when separated
   emotion control is required.
+- Multi-modal Audio LLM candidate: `mlx-FireRedAudio` (ASR, audio QA with CoT,
+  zero-shot TTS, speech editing, voice design).
 - The target for VoxCPM2/Qwen3-TTS is: official project inference behavior, official checkpoint component conversion, local MLX runtime, full feature preservation, no `mlx-audio` production runtime.
-- The other seven projects are registered operational backends, not implied
-  quality winners. Use the shared 11-project evaluation before making ranking
+- The other eight projects are registered operational backends, not implied
+  quality winners. Use the shared 12-project evaluation before making ranking
   claims. Supertonic has no evidenced arbitrary reference-clone path, so its
   clone similarity is `not applicable`, not zero.
 - Git recovery restores tracked source/configuration only. It does not restore
