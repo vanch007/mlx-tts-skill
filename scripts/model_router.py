@@ -121,6 +121,14 @@ def route(
             suggested_profile="8bit",
             suggested_checks=("asr", "voice", "rtf"),
         )
+    if any(token in combined for token in ("breeze", "sirocco", "speech event", "语音事件", "笑声事件", "(laugh)", "[笑]")):
+        return Route(
+            backend="breeze",
+            confidence=0.90,
+            reason="voice direction or speech event syntax routes to Breeze TTS 2",
+            suggested_profile="8bit",
+            suggested_checks=("asr", "voice", "rtf"),
+        )
 
     if omnivoice_requested or "omnivoice" in goal:
         return Route(

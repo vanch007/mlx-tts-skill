@@ -44,6 +44,7 @@ PROJECTS: tuple[ModelProject, ...] = (
     ModelProject("moss", "mlx_moss_tts", ("moss_tts", "mlx-moss-tts", "mlx_moss_tts"), "/Users/vanch/mlx-MOSS-TTS-Local-Transformer-v1.5", "vanch007/mlx-MOSS-TTS-Local-Transformer-v1.5", "main", "references/model_catalog.md", "yes", "Multilingual cloning/style/streaming; requires local audio-tokenizer shards."),
     ModelProject("supertonic", "mlx_supertonic", ("mlx-supertonic", "mlx_supertonic"), "/Users/vanch/mlx-supertonic", "vanch007/mlx-supertonic", "main", "references/model_catalog.md", "no", "Lightweight fixed-style voices; no official arbitrary reference cloning."),
     ModelProject("fireredaudio", "mlx_fireredaudio", ("firered", "firered_audio", "mlx-fireredaudio", "mlx_fireredaudio"), "/Users/vanch/mlx-FireRedAudio", "vanch007/mlx-FireRedAudio", "main", "references/fireredaudio.md", "yes", "General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design."),
+    ModelProject("breeze", "mlx_breeze_tts2", ("breeze_tts", "breeze_tts2", "breeze2", "mlx-breeze-tts2", "mlx_breeze_tts2", "sirocco"), "/Users/vanch/mlx-breeze-tts2", "vanch007/mlx-breeze-tts2", "main", "references/breeze.md", "yes", "Breeze TTS 2 with voice design, cloning, voice direction, speech events laugh/cough/sigh, and streaming."),
 )
 
 
@@ -135,7 +136,7 @@ def _serialize(projects: Iterable[ModelProject]) -> list[dict[str, object]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 12 local MLX TTS source projects.")
+    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 13 local MLX TTS source projects.")
     parser.add_argument("--model", help="Show one model project by key or alias.")
     parser.add_argument("--check", action="store_true", help="Inspect all registered local roots.")
     parser.add_argument("--ensure", metavar="MODEL", help="Clone one missing source project.")

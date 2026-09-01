@@ -13,7 +13,7 @@ class FireRedAudioSkillTests(unittest.TestCase):
     def test_registry_contains_fireredaudio(self):
         keys = [p.key for p in PROJECTS]
         self.assertIn("fireredaudio", keys)
-        self.assertEqual(len(PROJECTS), 12)
+        self.assertEqual(len(PROJECTS), 13)
 
     def test_resolve_aliases(self):
         for alias in ("fireredaudio", "firered", "firered_audio", "mlx-fireredaudio", "mlx_fireredaudio"):
@@ -34,4 +34,3 @@ class FireRedAudioSkillTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
