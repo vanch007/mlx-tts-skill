@@ -18,6 +18,14 @@ featuring T5Gemma2 text encoding, an autoregressive Qwen3 backbone for Codebook 
 - **Long text stability**: multi-sentence continuity without dropped clauses.
 - **Fast streaming & non-streaming generation**.
 
+## Fast Depth Inference (Default)
+
+As of commit `51c182d`, Fast Depth decoding is enabled by default across Model, Engine, CLI, and HTTP server.
+- Steady-state RTF: ~1.15x (P90 1.16x) on Apple Silicon M3 Max
+- CFG=4 voice design RTF: ~1.53x
+- Streaming TTFA: ~1.30s (-54.5% latency reduction vs eager 2.87s)
+- Explicit eager fallback: `--disable-fast-depth` (CLI) or `fast_depth=False` (API)
+
 ## Command Line Usage
 
 ### Voice Design
@@ -52,4 +60,3 @@ cd /Users/vanch/mlx-breeze-tts2
   --text "(laugh) You really got me. I did not see that coming at all." \
   --output outputs/event_laugh.wav
 ```
-
