@@ -1,6 +1,6 @@
 # MLX TTS Model Catalog
 
-This catalog is the operational inventory for the 13 projects in the local
+This catalog is the operational inventory for the 14 projects in the local
 benchmark roster. Capability claims are intentionally narrow: confirm final
 quality with the shared benchmark and listening review.
 
@@ -21,8 +21,9 @@ quality with the shared benchmark and listening review.
 | `supertonic` | `mlx_supertonic` | `/Users/vanch/mlx-supertonic` | `vanch007/mlx-supertonic` | no | lightweight fixed-style on-device voices |
 | `fireredaudio` | `mlx_fireredaudio` | `/Users/vanch/mlx-FireRedAudio` | `vanch007/mlx-FireRedAudio` | yes | General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design |
 | `breeze` | `mlx_breeze_tts2` | `/Users/vanch/mlx-breeze-tts2` | `vanch007/mlx-breeze-tts2` | yes | Breeze TTS 2 with voice design, cloning, voice direction, speech events, and streaming |
+| `pocket` | `mlx_pocket_tts` | `/Users/vanch/mlx-pocket-tts` | `vanch007/mlx-pocket-tts` | yes | Kyutai Pocket TTS; 8-bit FlowLM, Mimi audio codec, 26 preset voices, zero-shot clone |
 
-All 13 source repositories are public. Do not label Supertonic output as voice
+All 14 source repositories are public. Do not label Supertonic output as voice
 cloning: its checked project path provides fixed voice styles, not arbitrary
 reference speaker cloning.
 
@@ -146,6 +147,17 @@ cd /Users/vanch/mlx-breeze-tts2
 
 Native MLX port of Breeze TTS 2 supporting voice design from text instruction,
 zero-shot voice cloning, voice direction, speech events, and streaming.
+
+
+### Pocket TTS
+
+```bash
+cd /Users/vanch/mlx-pocket-tts
+uv run mlx-pocket-tts generate --help
+```
+
+Native MLX port of Kyutai Pocket TTS supporting ultra-fast streaming generation,
+8-bit FlowLM, Mimi codec, 26 preset voices, and zero-shot voice cloning.
 
 ## Benchmark Boundary
 

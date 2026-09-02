@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 13 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, FireRedAudio, and Breeze TTS 2. Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 14 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, and Pocket TTS. Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -42,6 +42,8 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
   zero-shot TTS, speech editing, voice design).
 - Paralinguistic speech events and voice direction candidate: `mlx-breeze-tts2`
   (voice design, voice clone, voice direction, speech events laugh/cough/sigh, streaming).
+- Ultra-fast streaming and lightweight cloning candidate: `mlx-pocket-tts`
+  (8-bit FlowLM, Mimi audio codec, 26 preset voices, multilingual, zero-shot clone).
 - The target for VoxCPM2/Qwen3-TTS is: official project inference behavior, official checkpoint component conversion, local MLX runtime, full feature preservation, no `mlx-audio` production runtime.
 - The other eight projects are registered operational backends, not implied
   quality winners. Use the shared 13-project evaluation before making ranking
