@@ -46,6 +46,7 @@ PROJECTS: tuple[ModelProject, ...] = (
     ModelProject("fireredaudio", "mlx_fireredaudio", ("firered", "firered_audio", "mlx-fireredaudio", "mlx_fireredaudio"), "/Users/vanch/mlx-FireRedAudio", "vanch007/mlx-FireRedAudio", "main", "references/fireredaudio.md", "yes", "General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design."),
     ModelProject("breeze", "mlx_breeze_tts2", ("breeze_tts", "breeze_tts2", "breeze2", "mlx-breeze-tts2", "mlx_breeze_tts2", "sirocco"), "/Users/vanch/mlx-breeze-tts2", "vanch007/mlx-breeze-tts2", "main", "references/breeze.md", "yes", "Breeze TTS 2 with voice design, cloning, voice direction, speech events laugh/cough/sigh, and streaming."),
     ModelProject("pocket", "mlx_pocket_tts", ("pocket_tts", "mlx-pocket-tts", "mlx_pocket_tts", "kyutai_pocket"), "/Users/vanch/mlx-pocket-tts", "vanch007/mlx-pocket-tts", "main", "references/pocket_tts.md", "yes", "Kyutai Pocket TTS Apple Silicon MLX port; 8-bit FlowLM, Mimi audio codec, 26 preset voice embeddings, and zero-shot voice cloning."),
+    ModelProject("audio8", "mlx_audio8_tts", ("audio8_tts", "mlx-audio8-tts", "mlx_audio8_tts", "arktts", "ark_tts"), "/Users/vanch/mlx-audio8-tts", "vanch007/mlx-audio8-tts", "main", "references/audio8.md", "yes", "Audio8 TTS (ArkTTS) 0.6B DualAR + 44.1kHz 10-codebook neural codec; zero-shot clone zh/en/yue/ja/ko/fr/de/es/it/nl/pl."),
 )
 
 
@@ -137,7 +138,7 @@ def _serialize(projects: Iterable[ModelProject]) -> list[dict[str, object]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 14 local MLX TTS source projects.")
+    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 15 local MLX TTS source projects.")
     parser.add_argument("--model", help="Show one model project by key or alias.")
     parser.add_argument("--check", action="store_true", help="Inspect all registered local roots.")
     parser.add_argument("--ensure", metavar="MODEL", help="Clone one missing source project.")

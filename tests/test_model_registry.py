@@ -16,10 +16,10 @@ from model_registry import PROJECTS, ensure_project, resolve_project  # noqa: E4
 
 
 class ModelRegistryTests(unittest.TestCase):
-    def test_registry_has_exactly_14_unique_projects(self) -> None:
-        self.assertEqual(14, len(PROJECTS))
-        self.assertEqual(14, len({project.key for project in PROJECTS}))
-        self.assertEqual(14, len({project.github for project in PROJECTS}))
+    def test_registry_has_exactly_15_unique_projects(self) -> None:
+        self.assertEqual(15, len(PROJECTS))
+        self.assertEqual(15, len({project.key for project in PROJECTS}))
+        self.assertEqual(15, len({project.github for project in PROJECTS}))
         self.assertTrue(all(Path(project.root).is_absolute() for project in PROJECTS))
 
     def test_aliases_resolve_to_canonical_keys(self) -> None:
@@ -37,6 +37,8 @@ class ModelRegistryTests(unittest.TestCase):
             "mlx-supertonic": "supertonic",
             "mlx_fireredaudio": "fireredaudio",
             "mlx_breeze_tts2": "breeze",
+            "mlx_audio8_tts": "audio8",
+            "mlx-audio8-tts": "audio8",
         }
         for alias, key in expected.items():
             with self.subTest(alias=alias):
@@ -57,14 +59,14 @@ class ModelRegistryTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "refusing to overwrite"):
                 ensure_project(resolve_project("scenema"), root=destination, dry_run=True)
 
-    def test_cli_json_lists_14_projects(self) -> None:
+    def test_cli_json_lists_15_projects(self) -> None:
         completed = subprocess.run(
             [sys.executable, str(SCRIPTS / "model_registry.py"), "--json"],
             text=True,
             capture_output=True,
             check=True,
         )
-        self.assertEqual(14, len(json.loads(completed.stdout)))
+        self.assertEqual(15, len(json.loads(completed.stdout)))
 
 
 if __name__ == "__main__":

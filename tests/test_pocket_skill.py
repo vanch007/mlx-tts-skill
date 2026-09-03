@@ -12,7 +12,7 @@ from model_registry import PROJECTS, resolve_project  # noqa: E402
 
 class PocketSkillTests(unittest.TestCase):
     def test_registry_contains_pocket(self) -> None:
-        self.assertEqual(len(PROJECTS), 14)
+        self.assertEqual(len(PROJECTS), 15)
         project = resolve_project("pocket")
         self.assertEqual(project.key, "pocket")
         self.assertEqual(project.project_id, "mlx_pocket_tts")

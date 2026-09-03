@@ -13,7 +13,7 @@ class BreezeSkillTests(unittest.TestCase):
     def test_registry_contains_breeze(self):
         keys = [p.key for p in PROJECTS]
         self.assertIn("breeze", keys)
-        self.assertEqual(len(PROJECTS), 14)
+        self.assertEqual(len(PROJECTS), 15)
 
     def test_resolve_aliases(self):
         for alias in ("breeze", "breeze_tts", "breeze_tts2", "breeze2", "mlx-breeze-tts2", "mlx_breeze_tts2", "sirocco"):
@@ -34,4 +34,3 @@ class BreezeSkillTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

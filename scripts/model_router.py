@@ -129,6 +129,14 @@ def route(
             suggested_profile="8bit",
             suggested_checks=("asr", "voice", "rtf"),
         )
+    if any(token in combined for token in ("audio8", "arktts", "ark_tts", "44.1khz", "44100")):
+        return Route(
+            backend="audio8",
+            confidence=0.90,
+            reason="Audio8 TTS (ArkTTS) 44.1kHz DualAR zero-shot cloning request routes to mlx-audio8-tts",
+            suggested_profile="8bit",
+            suggested_checks=("asr", "voice", "rtf"),
+        )
 
     if omnivoice_requested or "omnivoice" in goal:
         return Route(

@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 14 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, and Pocket TTS. Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 15 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, Pocket TTS, and Audio8 TTS (ArkTTS). Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -11,7 +11,7 @@ Use this skill to preserve each backend's native strengths instead of forcing ev
 
 ## Canonical Model Registry
 
-The skill covers exactly 11 benchmark projects. Read
+The skill covers exactly 15 benchmark projects. Read
 `references/model_catalog.md` for the complete root/GitHub/capability table and
 backend entrypoints. Query the machine-readable registry with:
 
@@ -20,7 +20,7 @@ python /Users/vanch/.skills-manager/skills/mlx-tts/scripts/model_registry.py --c
 ```
 
 Canonical keys are: `indextts`, `voxcpm2`, `qwen_tts`, `omnivoice`, `higgs`,
-`dots`, `zonos2`, `scenema`, `ming`, `moss`, and `supertonic`.
+`dots`, `zonos2`, `scenema`, `ming`, `moss`, `supertonic`, `fireredaudio`, `breeze`, `pocket`, and `audio8`.
 
 Before executing a non-trivial task, read the target project's `.ai_project.md` and `.ai_memory.md` if present.
 
@@ -44,6 +44,8 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
   (voice design, voice clone, voice direction, speech events laugh/cough/sigh, streaming).
 - Ultra-fast streaming and lightweight cloning candidate: `mlx-pocket-tts`
   (8-bit FlowLM, Mimi audio codec, 26 preset voices, multilingual, zero-shot clone).
+- 44.1kHz DualAR zero-shot voice cloning candidate: `mlx-audio8-tts`
+  (0.6B DualAR transformer + 44.1kHz 10-codebook neural codec, multilingual zh/en/yue/ja/ko/fr/de/es/it/nl/pl, zero-shot clone, high-fidelity speech synthesis).
 - The target for VoxCPM2/Qwen3-TTS is: official project inference behavior, official checkpoint component conversion, local MLX runtime, full feature preservation, no `mlx-audio` production runtime.
 - The other eight projects are registered operational backends, not implied
   quality winners. Use the shared 13-project evaluation before making ranking
@@ -57,7 +59,7 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 Extract these fields from the user request or manifest. Do not invent missing file paths.
 
 - `task_type`: `single`, `batch`, `dialogue`, `novel`, `benchmark`, `compare`, `optimize`, `emotion_library`, `asr_check`
-- `backend`: one of the 11 canonical registry keys, an accepted alias, or `compare`
+- `backend`: one of the 15 canonical registry keys, an accepted alias, or `compare`
 - `model_override`: exact model directory, registry id, or CLI model flag
 - `language`: `zh`, `en`, `ja`, `es`, `ar`, `vi`, `mixed`, or `auto`
 - `speaker_ref`: voice reference audio, speaker cache, or per-row manifest column
