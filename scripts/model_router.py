@@ -137,6 +137,14 @@ def route(
             suggested_profile="8bit",
             suggested_checks=("asr", "voice", "rtf"),
         )
+    if any(token in combined for token in ("drama3", "drama_3", "drama-3", "fish_speech", "fishaudio", "fish audio", "<|speaker:", "[sighs]", "[laughs]", "[whispers]")):
+        return Route(
+            backend="drama3",
+            confidence=0.92,
+            reason="Fish Audio Drama 3 (35B MoE + multi-speaker/point tags) request routes to drama-3-mlx",
+            suggested_profile="4bit",
+            suggested_checks=("asr", "voice", "rtf"),
+        )
 
     if omnivoice_requested or "omnivoice" in goal:
         return Route(

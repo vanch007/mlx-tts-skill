@@ -13,7 +13,7 @@ class Audio8SkillTests(unittest.TestCase):
     def test_registry_contains_audio8(self):
         keys = [p.key for p in PROJECTS]
         self.assertIn("audio8", keys)
-        self.assertEqual(len(PROJECTS), 15)
+        self.assertEqual(len(PROJECTS), 16)
 
     def test_resolve_aliases(self):
         for alias in ("audio8", "audio8_tts", "mlx-audio8-tts", "mlx_audio8_tts", "arktts", "ark_tts"):
