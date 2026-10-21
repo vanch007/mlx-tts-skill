@@ -41,6 +41,7 @@ PROJECTS: tuple[ModelProject, ...] = (
     ModelProject("zonos2", "mlx_zonos2", ("zonos", "mlx-zonos2", "mlx_zonos2"), "/Users/vanch/mlx-ZONOS2", "vanch007/mlx-ZONOS2", "main", "references/model_catalog.md", "yes", "Voice cloning and conditioning; requires a local DAC checkpoint."),
     ModelProject("scenema", "mlx_scenema_audio", ("scenema_audio", "mlx-scenema-audio", "mlx_scenema_audio"), "/Users/vanch/mlx-scenema-audio", "vanch007/mlx-scenema-audio", "main", "references/model_catalog.md", "yes", "MLX speech engine with voice design, cloning, and action tags."),
     ModelProject("ming", "mlx_ming_omni_tts", ("ming_omni", "mlx-ming-omni-tts", "mlx_ming_omni_tts"), "/Users/vanch/mlx-Ming-omni-tts", "vanch007/mlx-Ming-omni-tts", "main", "references/model_catalog.md", "design", "Large voice-design, speech, music, and sound generation model."),
+    ModelProject("ming3", "mlx_ming3_tts", ("ming_3", "ming3_tts", "mlx-ming-3.0-tts", "mlx_ming_3_0_tts", "ming-3.0-tts"), "/Users/vanch/mlx-Ming-3.0-tts", "vanch007/mlx-Ming-3.0-tts", "master", "references/model_catalog.md", "yes", "Ming-3.0-tts dual architecture: Tiny 7.9B MoE (128 experts + KDA) and 0.5B Dense; voice cloning, podcast dialogue, emotion & dialect."),
     ModelProject("moss", "mlx_moss_tts", ("moss_tts", "mlx-moss-tts", "mlx_moss_tts"), "/Users/vanch/mlx-MOSS-TTS-Local-Transformer-v1.5", "vanch007/mlx-MOSS-TTS-Local-Transformer-v1.5", "main", "references/model_catalog.md", "yes", "Multilingual cloning/style/streaming; requires local audio-tokenizer shards."),
     ModelProject("supertonic", "mlx_supertonic", ("mlx-supertonic", "mlx_supertonic"), "/Users/vanch/mlx-supertonic", "vanch007/mlx-supertonic", "main", "references/model_catalog.md", "no", "Lightweight fixed-style voices; no official arbitrary reference cloning."),
     ModelProject("fireredaudio", "mlx_fireredaudio", ("firered", "firered_audio", "mlx-fireredaudio", "mlx_fireredaudio"), "/Users/vanch/mlx-FireRedAudio", "vanch007/mlx-FireRedAudio", "main", "references/fireredaudio.md", "yes", "General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design."),
@@ -139,7 +140,7 @@ def _serialize(projects: Iterable[ModelProject]) -> list[dict[str, object]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 16 local MLX TTS source projects.")
+    parser = argparse.ArgumentParser(description="List, inspect, or safely restore the 17 local MLX TTS source projects.")
     parser.add_argument("--model", help="Show one model project by key or alias.")
     parser.add_argument("--check", action="store_true", help="Inspect all registered local roots.")
     parser.add_argument("--ensure", metavar="MODEL", help="Clone one missing source project.")

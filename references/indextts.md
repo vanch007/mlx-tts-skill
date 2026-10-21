@@ -9,10 +9,11 @@ Root: `/Users/vanch/mlx-indextts2`
 - Validated Hugging Face source revision:
   `d0aa86e75bb6f3437f3831e95056fa72842d89ef`.
 - 2.5 languages: `zh`, `en`, `ja`, `es`, `ar`.
-- Vietnamese stays on the separate IndexTTS 2.0 local-extension model at
-  `models/mlx-indexTTS2-vietnamese-8bit`.
-- Standard 2.0 remains available at `models/mlx-indexTTS2-standard-8bit` for
-  regression comparison; 1.5 is legacy-only.
+- Vietnamese and unified IndexTTS 2.0 tasks run on the Vietnamese-enhanced model at
+  `models/mlx-indexTTS2-vietnamese-8bit` (`dinhthuan/index-tts-2-vietnamese`), which
+  preserves the full capabilities of IndexTTS 2.0 (Chinese, English, emotion conditioning,
+  and voice cloning) alongside Vietnamese.
+- The standalone standard 2.0 model has been removed as redundant; 1.5 is legacy-only.
 
 Do not share speaker caches between 2.0 and 2.5. The 2.5 cache contract is
 revision/schema-bound and rejects incompatible caches.
@@ -81,7 +82,7 @@ cd /Users/vanch/mlx-indextts2
 
 ## Native Parameters To Preserve
 
-- `--profile v25|2.5|auto|standard|vietnamese|vi`
+- `--profile v25|2.5|auto|vietnamese|vi|standard|v20|2.0`
 - `--model`
 - `--language zh|en|ja|es|ar` for 2.5
 - `--ref-audio`
@@ -105,7 +106,7 @@ manual emotion, or emotion-reference audio.
 ## Evaluation Rules and Known Constraints
 
 - Formal 2.5 artifact ID: `mlx_indextts2_v25_8bit`.
-- Vietnamese 2.0 artifact ID: `mlx_indextts2_vietnamese_8bit`.
+- Vietnamese / 2.0 artifact ID: `mlx_indextts2_vietnamese_8bit`.
 - Never relabel historical `mlx_indextts2_standard_8bit` output as 2.5.
 - English and Spanish automatic detection is ambiguous. Pass an explicit
   language for every formal five-language run.

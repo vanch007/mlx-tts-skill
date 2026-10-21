@@ -8,7 +8,7 @@ quality with the shared benchmark and listening review.
 
 | Key | Project | Local root | GitHub | Clone | Primary role |
 |---|---|---|---|---|---|
-| `indextts` | `mlx_indextts2` | `/Users/vanch/mlx-indextts2` | `vanch007/mlx-indextts2` | yes | IndexTTS 2.5 zh/en/ja/es/ar; separate Vietnamese 2.0; cloning, emotion, duration, streaming |
+| `indextts` | `mlx_indextts2` | `/Users/vanch/mlx-indextts2` | `vanch007/mlx-indextts2` | yes | IndexTTS 2.5 zh/en/ja/es/ar; Vietnamese-enhanced 2.0 (full 2.0 capability); cloning, emotion, duration, streaming |
 | `voxcpm2` | `mlx_voxcpm2` | `/Users/vanch/mlx-voxcpm2` | `vanch007/mlx-voxcpm2` | yes | native MLX cloning and fidelity comparison |
 | `qwen_tts` | `mlx_qwen3_tts` | `/Users/vanch/mlx-qwen3-tts` | `vanch007/mlx-qwen3-tts` | yes | ICL clone, presets, and natural-language voice design |
 | `omnivoice` | `mlx_omnivoice` | `/Users/vanch/mlx-omnivoice` | `vanch007/mlx-omnivoice` | yes | Chinese dialogue and crosstalk |
@@ -17,6 +17,7 @@ quality with the shared benchmark and listening review.
 | `zonos2` | `mlx_zonos2` | `/Users/vanch/mlx-ZONOS2` | `vanch007/mlx-ZONOS2` | yes | clone plus conditioning controls |
 | `scenema` | `mlx_scenema_audio` | `/Users/vanch/mlx-scenema-audio` | `vanch007/mlx-scenema-audio` | yes | voice design, clone, and action tags |
 | `ming` | `mlx_ming_omni_tts` | `/Users/vanch/mlx-Ming-omni-tts` | `vanch007/mlx-Ming-omni-tts` | design | large speech/music/sound and voice-design model |
+| `ming3` | `mlx_ming3_tts` | `/Users/vanch/mlx-Ming-3.0-tts` | `vanch007/mlx-Ming-3.0-tts` | yes | Ming-3.0-tts dual architecture: Tiny 7.9B MoE (128 experts + KDA) and 0.5B Dense; voice cloning, podcast dialogue, emotion & dialect |
 | `moss` | `mlx_moss_tts` | `/Users/vanch/mlx-MOSS-TTS-Local-Transformer-v1.5` | `vanch007/mlx-MOSS-TTS-Local-Transformer-v1.5` | yes | multilingual clone, style, and streaming |
 | `supertonic` | `mlx_supertonic` | `/Users/vanch/mlx-supertonic` | `vanch007/mlx-supertonic` | no | lightweight fixed-style on-device voices |
 | `fireredaudio` | `mlx_fireredaudio` | `/Users/vanch/mlx-FireRedAudio` | `vanch007/mlx-FireRedAudio` | yes | General-purpose audio LLM with ASR, QA, Voice Cloning (TTS), Speech Editing, and Voice Design |
@@ -25,7 +26,7 @@ quality with the shared benchmark and listening review.
 | `audio8` | `mlx_audio8_tts` | `/Users/vanch/mlx-audio8-tts` | `vanch007/mlx-audio8-tts` | yes | Audio8 TTS (ArkTTS) 0.6B DualAR + 44.1kHz 10-codebook neural codec; zero-shot clone zh/en/yue/ja/ko/fr/de/es/it/nl/pl |
 | `drama3` | `mlx_drama3` | `/Users/vanch/drama-3-mlx` | `vanch007/drama-3-mlx` | yes | Fish Audio Drama 3; 35B MoE + 44.1kHz 10-codebook Modded DAC, zero-shot clone, multi-speaker dialogue, emotional point tags |
 
-All 16 source repositories are public. Do not label Supertonic output as voice
+All 17 source repositories are public. Do not label Supertonic output as voice
 cloning: its checked project path provides fixed voice styles, not arbitrary
 reference speaker cloning.
 

@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 16 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, Pocket TTS, Audio8 TTS (ArkTTS), and Drama 3 (Fish Audio). Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 17 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, Ming 3.0 TTS (0.5B Dense & Tiny 7.9B MoE), MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, Pocket TTS, Audio8 TTS (ArkTTS), and Drama 3 (Fish Audio). Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -20,7 +20,7 @@ python /Users/vanch/.skills-manager/skills/mlx-tts/scripts/model_registry.py --c
 ```
 
 Canonical keys are: `indextts`, `voxcpm2`, `qwen_tts`, `omnivoice`, `higgs`,
-`dots`, `zonos2`, `scenema`, `ming`, `moss`, `supertonic`, `fireredaudio`, `breeze`, `pocket`, `audio8`, and `drama3`.
+`dots`, `zonos2`, `scenema`, `ming`, `ming3`, `moss`, `supertonic`, `fireredaudio`, `breeze`, `pocket`, `audio8`, and `drama3`.
 
 Before executing a non-trivial task, read the target project's `.ai_project.md` and `.ai_memory.md` if present.
 
@@ -30,8 +30,11 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 - `mlx-indextts2` defaults non-Vietnamese work to IndexTTS 2.5 GPT 8-bit at
   `models/mlx-IndexTTS-2.5-8bit` (HF revision
   `d0aa86e75bb6f3437f3831e95056fa72842d89ef`). Its evidenced languages are
-  Chinese, English, Japanese, Spanish, and Arabic. Vietnamese remains a
-  separate IndexTTS 2.0 local-extension profile and evaluation artifact.
+  Chinese, English, Japanese, Spanish, and Arabic. Vietnamese and IndexTTS 2.0
+  tasks run on the Vietnamese-enhanced IndexTTS 2.0 model at
+  `models/mlx-indexTTS2-vietnamese-8bit` (`dinhthuan/index-tts-2-vietnamese`),
+  which preserves all IndexTTS 2.0 capabilities (Chinese, English, emotion
+  disentanglement, voice cloning), superseding the redundant standard 2.0 model.
 - Performance-verified candidate: `mlx-voxcpm2` native official rebuild.
 - Official-lineage candidate: `mlx-qwen3-tts` Base, CustomVoice, and VoiceDesign
   int8 conversions. Use it for comparison, Qwen-style cloning, CustomVoice
@@ -48,6 +51,8 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
   (0.6B DualAR transformer + 44.1kHz 10-codebook neural codec, multilingual zh/en/yue/ja/ko/fr/de/es/it/nl/pl, zero-shot clone, high-fidelity speech synthesis).
 - 35B MoE multi-speaker conversational dialogue and zero-shot cloning candidate: `drama-3-mlx`
   (Fish Audio Drama 3; 35B MoE text backbone with 40 hybrid linear/full attention layers + 10-codebook MTP tower, 44.1kHz Modded DAC, multi-speaker dialogue <|speaker:0|>..<|speaker:15|>, point tags [sighs]/[laughs]/[whispers], zero-shot clone).
+- Dual architecture MoE & Dense candidate: `mlx-Ming-3.0-tts`
+  (Ming-3.0-tts dual architecture: Tiny 7.9B MoE with 128 experts + KDA linear recurrence, multi-speaker podcast dialogue, paralinguistic controls, emotion & dialect; 0.5B Dense ultra-lightweight real-time voice cloning).
 - The target for VoxCPM2/Qwen3-TTS is: official project inference behavior, official checkpoint component conversion, local MLX runtime, full feature preservation, no `mlx-audio` production runtime.
 - The other eight projects are registered operational backends, not implied
   quality winners. Use the shared 13-project evaluation before making ranking
@@ -61,7 +66,7 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 Extract these fields from the user request or manifest. Do not invent missing file paths.
 
 - `task_type`: `single`, `batch`, `dialogue`, `novel`, `benchmark`, `compare`, `optimize`, `emotion_library`, `asr_check`
-- `backend`: one of the 16 canonical registry keys, an accepted alias, or `compare`
+- `backend`: one of the 17 canonical registry keys, an accepted alias, or `compare`
 - `model_override`: exact model directory, registry id, or CLI model flag
 - `language`: `zh`, `en`, `ja`, `es`, `ar`, `vi`, `mixed`, or `auto`
 - `speaker_ref`: voice reference audio, speaker cache, or per-row manifest column
@@ -183,7 +188,7 @@ and test cases. Compute speaker similarity only when a valid reference is paired
 with a backend that actually performs reference cloning.
 
 IndexTTS evaluation must use `mlx_indextts2_v25_8bit` for the 2.5 artifact and
-`mlx_indextts2_vietnamese_8bit` for Vietnamese 2.0. Never relabel historical
+`mlx_indextts2_vietnamese_8bit` for Vietnamese / 2.0. Never relabel historical
 `mlx_indextts2_standard_8bit` rows as 2.5 without regeneration.
 
 ## Missing Project Recovery
