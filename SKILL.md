@@ -1,6 +1,6 @@
 ---
 name: mlx-tts
-description: "Unified Apple Silicon MLX speech workflow and source registry for 17 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, Ming 3.0 TTS (0.5B Dense & Tiny 7.9B MoE), MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, Pocket TTS, Audio8 TTS (ArkTTS), and Drama 3 (Fish Audio). Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
+description: "Unified Apple Silicon MLX speech workflow and source registry for 18 local projects: IndexTTS 2.5/2.0, VoxCPM2, Qwen3-TTS, OmniVoice, Higgs Audio, dots.tts, ZONOS2, Scenema Audio, Ming Omni TTS, Ming 3.0 TTS (0.5B Dense & Tiny 7.9B MoE), MOSS TTS, Supertonic, FireRedAudio, Breeze TTS 2, Pocket TTS, Audio8 TTS (ArkTTS), Drama 3 (Fish Audio), and VoxMel (VoxDance Lab). Use for local MLX TTS generation, voice cloning or design, audio understanding/QA, speech editing, speech events, multilingual speech, dialogue, batch work, ASR/leakage validation, RTF and listening benchmarks, backend selection, project inventory, or restoring a missing source checkout from GitHub. Do not use for cloud TTS or music-only work with no speech requirement."
 ---
 
 # MLX TTS Unified Workflow
@@ -20,7 +20,7 @@ python /Users/vanch/.skills-manager/skills/mlx-tts/scripts/model_registry.py --c
 ```
 
 Canonical keys are: `indextts`, `voxcpm2`, `qwen_tts`, `omnivoice`, `higgs`,
-`dots`, `zonos2`, `scenema`, `ming`, `ming3`, `moss`, `supertonic`, `fireredaudio`, `breeze`, `pocket`, `audio8`, and `drama3`.
+`dots`, `zonos2`, `scenema`, `ming`, `ming3`, `moss`, `supertonic`, `fireredaudio`, `breeze`, `pocket`, `audio8`, `drama3`, and `voxmel`.
 
 Before executing a non-trivial task, read the target project's `.ai_project.md` and `.ai_memory.md` if present.
 
@@ -54,7 +54,7 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 - Dual architecture MoE & Dense candidate: `mlx-Ming-3.0-tts`
   (Ming-3.0-tts dual architecture: Tiny 7.9B MoE with 128 experts + KDA linear recurrence, multi-speaker podcast dialogue, paralinguistic controls, emotion & dialect; 0.5B Dense ultra-lightweight real-time voice cloning).
 - The target for VoxCPM2/Qwen3-TTS is: official project inference behavior, official checkpoint component conversion, local MLX runtime, full feature preservation, no `mlx-audio` production runtime.
-- The other eight projects are registered operational backends, not implied
+- The other nine projects are registered operational backends, not implied
   quality winners. Use the shared 13-project evaluation before making ranking
   claims. Supertonic has no evidenced arbitrary reference-clone path, so its
   clone similarity is `not applicable`, not zero.
@@ -66,7 +66,7 @@ Before executing a non-trivial task, read the target project's `.ai_project.md` 
 Extract these fields from the user request or manifest. Do not invent missing file paths.
 
 - `task_type`: `single`, `batch`, `dialogue`, `novel`, `benchmark`, `compare`, `optimize`, `emotion_library`, `asr_check`
-- `backend`: one of the 17 canonical registry keys, an accepted alias, or `compare`
+- `backend`: one of the 18 canonical registry keys, an accepted alias, or `compare`
 - `model_override`: exact model directory, registry id, or CLI model flag
 - `language`: `zh`, `en`, `ja`, `es`, `ar`, `vi`, `mixed`, or `auto`
 - `speaker_ref`: voice reference audio, speaker cache, or per-row manifest column

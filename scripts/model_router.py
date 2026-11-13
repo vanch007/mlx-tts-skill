@@ -137,6 +137,15 @@ def route(
             suggested_profile="8bit",
             suggested_checks=("asr", "voice", "rtf"),
         )
+    if any(token in combined for token in ("voxmel", "mlx-voxmel", "mlx_voxmel", "voxdance")):
+        return Route(
+            backend="voxmel",
+            confidence=0.92,
+            reason="Wavelet-Factorized Haar mel continuous autoregressive TTS routes to mlx-voxmel",
+            suggested_profile="8bit",
+            suggested_checks=("asr", "voice", "rtf"),
+        )
+
     if any(token in combined for token in ("drama3", "drama_3", "drama-3", "fish_speech", "fishaudio", "fish audio", "<|speaker:", "[sighs]", "[laughs]", "[whispers]")):
         return Route(
             backend="drama3",

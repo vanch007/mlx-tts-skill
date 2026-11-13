@@ -25,8 +25,9 @@ quality with the shared benchmark and listening review.
 | `pocket` | `mlx_pocket_tts` | `/Users/vanch/mlx-pocket-tts` | `vanch007/mlx-pocket-tts` | yes | Kyutai Pocket TTS; 8-bit FlowLM, Mimi audio codec, 26 preset voices, zero-shot clone |
 | `audio8` | `mlx_audio8_tts` | `/Users/vanch/mlx-audio8-tts` | `vanch007/mlx-audio8-tts` | yes | Audio8 TTS (ArkTTS) 0.6B DualAR + 44.1kHz 10-codebook neural codec; zero-shot clone zh/en/yue/ja/ko/fr/de/es/it/nl/pl |
 | `drama3` | `mlx_drama3` | `/Users/vanch/drama-3-mlx` | `vanch007/drama-3-mlx` | yes | Fish Audio Drama 3; 35B MoE + 44.1kHz 10-codebook Modded DAC, zero-shot clone, multi-speaker dialogue, emotional point tags |
+| `voxmel` | `mlx_voxmel` | `/Users/vanch/mlx-voxmel` | `vanch007/mlx-voxmel` | yes | Wavelet-Factorized continuous autoregressive Haar mel modeling; zh/en zero-shot clone, cross-lingual, dual CFG, pure MLX Vocos 24kHz |
 
-All 17 source repositories are public. Do not label Supertonic output as voice
+All 18 source repositories are public. Do not label Supertonic output as voice
 cloning: its checked project path provides fixed voice styles, not arbitrary
 reference speaker cloning.
 
@@ -161,6 +162,16 @@ uv run mlx-pocket-tts generate --help
 
 Native MLX port of Kyutai Pocket TTS supporting ultra-fast streaming generation,
 8-bit FlowLM, Mimi codec, 26 preset voices, and zero-shot voice cloning.
+
+### VoxMel
+
+```bash
+cd /Users/vanch/mlx-voxmel
+python inference.py --help
+```
+
+Native MLX port of VoxDance-Lab VoxMel supporting wavelet-factorized continuous
+autoregressive mel modeling, pure MLX Vocos vocoder, zh/en zero-shot voice cloning, and dual CFG.
 
 ## Benchmark Boundary
 

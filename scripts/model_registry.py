@@ -49,6 +49,7 @@ PROJECTS: tuple[ModelProject, ...] = (
     ModelProject("pocket", "mlx_pocket_tts", ("pocket_tts", "mlx-pocket-tts", "mlx_pocket_tts", "kyutai_pocket"), "/Users/vanch/mlx-pocket-tts", "vanch007/mlx-pocket-tts", "main", "references/pocket_tts.md", "yes", "Kyutai Pocket TTS Apple Silicon MLX port; 8-bit FlowLM, Mimi audio codec, 26 preset voice embeddings, and zero-shot voice cloning."),
     ModelProject("audio8", "mlx_audio8_tts", ("audio8_tts", "mlx-audio8-tts", "mlx_audio8_tts", "arktts", "ark_tts"), "/Users/vanch/mlx-audio8-tts", "vanch007/mlx-audio8-tts", "main", "references/audio8.md", "yes", "Audio8 TTS (ArkTTS) 0.6B DualAR + 44.1kHz 10-codebook neural codec; zero-shot clone zh/en/yue/ja/ko/fr/de/es/it/nl/pl."),
     ModelProject("drama3", "mlx_drama3", ("drama_3", "drama-3", "mlx-drama3", "mlx_drama3", "drama3_mlx", "fish_speech", "fishaudio", "fish_audio"), "/Users/vanch/drama-3-mlx", "vanch007/drama-3-mlx", "main", "references/drama3.md", "yes", "Fish Audio Drama 3 (35B MoE + 44.1kHz 10-codebook Modded DAC, zero-shot clone, multi-speaker dialogue, emotional point tags)."),
+    ModelProject("voxmel", "mlx_voxmel", ("voxmel", "mlx-voxmel", "mlx_voxmel", "voxdance"), "/Users/vanch/mlx-voxmel", "vanch007/mlx-voxmel", "main", "references/voxmel.md", "yes", "Wavelet-Factorized continuous autoregressive Haar mel modeling, zh/en zero-shot voice cloning, cross-lingual, dual CFG, pure MLX Vocos 24kHz."),
 )
 
 
